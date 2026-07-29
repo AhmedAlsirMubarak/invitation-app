@@ -72,4 +72,5 @@
     </div>
 @endif
 
-<p class="text-[11px] opacity-30 mt-4">{{ __('invite.footer_powered_by') }}</p>
+<img src="{{ asset('images/qrdukhool-white.png') }}" alt="{{ __('invite.footer_powered_by') }}" class="h-20 w-auto object-contain mx-auto mt-4 opacity-40">
+<p class="text-[11px] opacity-30 mt-1">{{ __('invite.footer_powered_by') }}</p>

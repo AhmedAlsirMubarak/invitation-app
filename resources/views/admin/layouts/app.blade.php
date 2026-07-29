@@ -13,7 +13,9 @@
 <div class="flex min-h-screen">
     <aside class="w-60 shrink-0 bg-slate-900 text-slate-200 flex flex-col">
         <div class="px-5 py-5 border-b border-slate-800">
-            <p class="font-semibold text-white">{{ __('admin.nav.studio_name') }}</p>
+            <a href="{{ route('admin.dashboard') }}" class="block mb-1">
+                <img src="{{ asset('images/qrdukhool-white.png') }}" alt="{{ __('admin.nav.studio_name') }}" class="h-10 w-auto object-contain">
+            </a>
             <p class="text-xs text-slate-400">{{ __('admin.nav.studio_tagline') }}</p>
         </div>
         <nav class="flex-1 px-3 py-4 space-y-1 text-sm">

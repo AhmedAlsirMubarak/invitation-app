@@ -1,7 +1,6 @@
 @php
     $otherLocale = app()->getLocale() === 'ar' ? 'en' : 'ar';
     $icoCheck = 'M4.5 12.75l6 6 9-13.5';
-    $icoSparkle = 'M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456Z';
     $icoArrowLeft = 'M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18';
 @endphp
 <!DOCTYPE html>
@@ -21,11 +20,8 @@
         <div class="absolute -top-24 -end-24 w-96 h-96 rounded-full bg-gold-500/20 blur-3xl"></div>
         <div class="absolute -bottom-32 -start-24 w-96 h-96 rounded-full bg-gold-500/10 blur-3xl"></div>
 
-        <a href="{{ url('/') }}" class="relative flex items-center gap-2.5">
-            <span class="w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center shrink-0">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#D8B45C" stroke-width="1.5" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="{{ $icoSparkle }}"/></svg>
-            </span>
-            <p class="font-display text-lg font-semibold">{{ __('admin.auth.studio_name') }}</p>
+        <a href="{{ url('/') }}" class="relative flex items-center">
+            <img src="{{ asset('images/qrdukhool-white.png') }}" alt="{{ __('admin.auth.studio_name') }}" class="h-40 w-auto object-contain">
         </a>
 
         <div class="relative max-w-sm">
@@ -60,7 +56,9 @@
                 <a href="{{ request()->fullUrlWithQuery(['lang' => $otherLocale]) }}" class="text-xs text-slate-400 hover:text-slate-700 transition">{{ __('admin.nav.language_switch') }}</a>
             </div>
 
-            <p class="md:hidden text-center font-display text-lg font-semibold text-slate-900 mb-1">{{ __('admin.auth.studio_name') }}</p>
+            <div class="md:hidden flex justify-center mb-1">
+                <img src="{{ asset('images/qrdukhool-logo.png') }}" alt="{{ __('admin.auth.studio_name') }}" class="h-20 w-auto object-contain">
+            </div>
             <h2 class="text-2xl font-display font-semibold text-slate-900 mb-1">{{ __('admin.auth.sign_in_title') }}</h2>
             <p class="text-sm text-slate-500 mb-8">{{ __('admin.auth.tagline') }}</p>
 

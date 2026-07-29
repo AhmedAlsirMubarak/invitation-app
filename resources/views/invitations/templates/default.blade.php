@@ -97,7 +97,8 @@
         </div>
     @endif
 
-    <p class="text-[11px] text-white/30 mt-10">{{ __('invite.footer_powered_by') }}</p>
+    <img src="{{ asset('images/qrdukhool-white.png') }}" alt="{{ __('invite.footer_powered_by') }}" class="h-6 w-auto object-contain mx-auto mt-10 opacity-40">
+    <p class="text-[11px] text-white/30 mt-1">{{ __('invite.footer_powered_by') }}</p>
 
 </div>
 </body>

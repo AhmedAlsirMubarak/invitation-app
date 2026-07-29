@@ -9,7 +9,6 @@
     $icoBell = 'M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0';
     $icoStar = 'M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 21.539a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z';
     $icoPhone = 'M2.25 6.75c0 8.284 6.716 15 15 15h1.5a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z';
-    $icoSparkle = 'M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456Z';
 
     // "Get started" should message the studio on WhatsApp when a contact
     // number is configured, instead of sending visitors to the login form.
@@ -44,11 +43,8 @@
 
 <header class="sticky top-0 z-50 border-b border-slate-100 bg-white/80 backdrop-blur-md">
     <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-        <a href="{{ url('/') }}" class="flex items-center gap-2.5">
-            <span class="w-9 h-9 rounded-xl bg-gradient-to-br from-ink-900 to-ink-800 flex items-center justify-center shrink-0">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#D8B45C" stroke-width="1.5" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="{{ $icoSparkle }}"/></svg>
-            </span>
-            <p class="font-display text-lg font-semibold">{{ __('landing.brand') }}</p>
+        <a href="{{ url('/') }}" class="flex items-center">
+            <img src="{{ asset('images/qrdukhool-logo.png') }}" alt="{{ __('landing.brand') }}" class="h-20 w-auto object-contain">
         </a>
         <div class="flex items-center gap-4 text-sm">
             <a href="{{ request()->fullUrlWithQuery(['lang' => $otherLocale]) }}" class="text-slate-500 hover:text-slate-900 transition">{{ __('landing.nav_language') }}</a>
@@ -91,8 +87,8 @@
                 @if ($settings['hero_image'] ?? null)
                     <img src="{{ $settings['hero_image'] }}" class="w-full h-full object-cover">
                 @else
-                    <div class="w-full h-full bg-gradient-to-br from-ink-800 to-ink-950 flex items-center justify-center">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#D8B45C" stroke-width="1" class="w-28 h-28 opacity-40"><path stroke-linecap="round" stroke-linejoin="round" d="{{ $icoSparkle }}"/></svg>
+                    <div class="w-full h-full bg-gradient-to-br from-ink-800 to-ink-950 flex items-center justify-center p-10">
+                        <img src="{{ asset('images/qrdukhool-white.png') }}" alt="{{ __('landing.brand') }}" class="w-full h-auto object-contain opacity-90">
                     </div>
                 @endif
             </div>
@@ -324,11 +320,8 @@
 
 <footer class="border-t border-slate-100">
     <div class="max-w-6xl mx-auto px-6 py-8 flex items-center justify-between text-sm text-slate-400">
-        <a href="{{ url('/') }}" class="flex items-center gap-2 text-slate-600">
-            <span class="w-7 h-7 rounded-lg bg-gradient-to-br from-ink-900 to-ink-800 flex items-center justify-center shrink-0">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#D8B45C" stroke-width="1.5" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="{{ $icoSparkle }}"/></svg>
-            </span>
-            <span class="font-medium">{{ __('landing.brand') }}</span>
+        <a href="{{ url('/') }}" class="flex items-center">
+            <img src="{{ asset('images/qrdukhool-logo.png') }}" alt="{{ __('landing.brand') }}" class="h-20 w-auto object-contain">
         </a>
         <div class="text-end">
             <p>&copy; {{ now()->year }} — {{ $settings['footer_rights'] ?? '' }}</p>

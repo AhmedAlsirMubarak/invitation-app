@@ -10,6 +10,7 @@
 </head>
 <body class="bg-slate-950 text-white min-h-screen">
 <div class="max-w-md mx-auto px-4 py-6">
+    <img src="{{ asset('images/qrdukhool-white.png') }}" alt="{{ __('admin.auth.studio_name') }}" class="h-30 w-auto object-contain mb-3">
     <h1 class="text-lg font-semibold mb-1">{{ $event->title }}</h1>
     <p class="text-sm text-slate-400 mb-4">{{ __('admin.scanner.subtitle') }}</p>
 
