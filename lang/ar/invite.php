@@ -1,0 +1,27 @@
+<?php
+
+return [
+    'salutation' => 'المكرم / المكرمة',
+    'salutation_casual' => 'عزيزي/عزيزتي',
+    'greeting' => 'السلام عليكم ورحمة الله وبركاته',
+    'invited_to' => 'يتشرف بدعوتكم لحضور',
+    'invited_to_wedding' => 'يتشرفون بدعوتكم لحضور حفل زفاف',
+    'view_location' => 'عرض الموقع على الخريطة',
+    'dear' => 'عزيزي/عزيزتي :name',
+    'companions_line' => 'أنتم و :count من الضيوف مدعوون',
+    'companion' => 'ضيف',
+    'companions' => 'ضيوف',
+    'no_companions_line' => 'يسعدنا حضوركم',
+    'rsvp_prompt' => 'يرجى تأكيد الحضور أو الاعتذار',
+    'accept' => 'تأكيد الحضور',
+    'decline' => 'اعتذار',
+    'responded_accepted' => 'تم تأكيد حضوركم، بانتظاركم بكل سرور',
+    'responded_declined' => 'تم تسجيل اعتذاركم، نتمنى لكم كل خير',
+    'entry_card_title' => 'بطاقة الدخول',
+    'entry_card_subtitle' => 'يرجى إبراز هذا الرمز عند الدخول',
+    'guest_count' => 'عدد الضيوف',
+    'change_response' => 'تغيير الرد؟',
+    'rsvp_saved' => 'شكرًا لكم — تم تسجيل ردكم بنجاح.',
+    'footer_powered_by' => 'دعوة إلكترونية',
+    'language' => 'English',
+];

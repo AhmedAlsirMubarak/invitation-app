@@ -1,0 +1,27 @@
+<?php
+
+return [
+    'salutation' => 'Dear',
+    'salutation_casual' => 'Hi',
+    'greeting' => 'Peace be upon you',
+    'invited_to' => 'You are warmly invited to',
+    'invited_to_wedding' => 'You are warmly invited to the wedding of',
+    'view_location' => 'View location on map',
+    'dear' => 'Dear :name',
+    'companions_line' => 'You and :count guests are invited',
+    'companion' => 'guest',
+    'companions' => 'guests',
+    'no_companions_line' => 'We look forward to your presence',
+    'rsvp_prompt' => 'Please confirm your attendance',
+    'accept' => 'Accept',
+    'decline' => 'Decline',
+    'responded_accepted' => 'Your attendance is confirmed — we look forward to seeing you',
+    'responded_declined' => 'Your response has been recorded — we\'ll miss you',
+    'entry_card_title' => 'Entry Card',
+    'entry_card_subtitle' => 'Please show this code at the entrance',
+    'guest_count' => 'Guest count',
+    'change_response' => 'Change your response?',
+    'rsvp_saved' => 'Thank you — your response has been recorded.',
+    'footer_powered_by' => 'Digital Invitation',
+    'language' => 'العربية',
+];
