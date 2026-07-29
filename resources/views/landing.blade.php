@@ -44,7 +44,7 @@
 <header class="sticky top-0 z-50 border-b border-slate-100 bg-white/80 backdrop-blur-md">
     <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         <a href="{{ url('/') }}" class="flex items-center">
-            <img src="{{ asset('images/qrdukhool-logo.png') }}" alt="{{ __('landing.brand') }}" class="h-20 w-auto object-contain">
+            <img src="{{ \App\Models\LandingSetting::logoUrl('logo') }}" alt="{{ __('landing.brand') }}" class="h-20 w-auto object-contain">
         </a>
         <div class="flex items-center gap-4 text-sm">
             <a href="{{ request()->fullUrlWithQuery(['lang' => $otherLocale]) }}" class="text-slate-500 hover:text-slate-900 transition">{{ __('landing.nav_language') }}</a>
@@ -88,7 +88,7 @@
                     <img src="{{ $settings['hero_image'] }}" class="w-full h-full object-cover">
                 @else
                     <div class="w-full h-full bg-gradient-to-br from-ink-800 to-ink-950 flex items-center justify-center p-10">
-                        <img src="{{ asset('images/qrdukhool-white.png') }}" alt="{{ __('landing.brand') }}" class="w-full h-auto object-contain opacity-90">
+                        <img src="{{ \App\Models\LandingSetting::logoUrl('logo_dark') }}" alt="{{ __('landing.brand') }}" class="w-full h-auto object-contain opacity-90">
                     </div>
                 @endif
             </div>
@@ -321,7 +321,7 @@
 <footer class="border-t border-slate-100">
     <div class="max-w-6xl mx-auto px-6 py-8 flex items-center justify-between text-sm text-slate-400">
         <a href="{{ url('/') }}" class="flex items-center">
-            <img src="{{ asset('images/qrdukhool-logo.png') }}" alt="{{ __('landing.brand') }}" class="h-20 w-auto object-contain">
+            <img src="{{ \App\Models\LandingSetting::logoUrl('logo') }}" alt="{{ __('landing.brand') }}" class="h-20 w-auto object-contain">
         </a>
         <div class="text-end">
             <p>&copy; {{ now()->year }} — {{ $settings['footer_rights'] ?? '' }}</p>

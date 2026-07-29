@@ -33,9 +33,12 @@ return [
         'nav_packages' => 'Packages',
         'nav_faqs' => 'FAQ',
         'settings_title' => 'General & hero section',
-        'settings_hero_image' => 'Hero background image (optional)',
         'settings_current_image' => 'Current image',
+        'settings_using_default' => 'Currently using the default logo',
         'field_key' => [
+            'logo' => 'Logo (for light backgrounds)',
+            'logo_dark' => 'White logo (for dark backgrounds)',
+            'hero_image' => 'Hero background image (optional)',
             'hero_title' => 'Hero title',
             'hero_subtitle' => 'Hero subtitle',
             'hero_cta' => 'Hero button text',

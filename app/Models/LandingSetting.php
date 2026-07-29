@@ -33,4 +33,15 @@ class LandingSetting extends Model
             ? \Illuminate\Support\Facades\Storage::disk('public')->url($setting->image_path)
             : null;
     }
+
+    // Site logo, admin-uploadable from Landing Settings. Falls back to the
+    // bundled static file so the brand mark still renders before an admin
+    // ever uploads one. $key = 'logo' (for light backgrounds) or
+    // 'logo_dark' (white version, for dark backgrounds).
+    public static function logoUrl(string $key = 'logo'): string
+    {
+        $fallback = $key === 'logo_dark' ? 'qrdukhool-white.png' : 'qrdukhool-logo.png';
+
+        return static::imageUrl($key) ?? asset('images/'.$fallback);
+    }
 }

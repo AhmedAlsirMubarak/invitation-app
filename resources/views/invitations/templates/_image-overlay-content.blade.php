@@ -72,5 +72,5 @@
     </div>
 @endif
 
-<img src="{{ asset('images/qrdukhool-white.png') }}" alt="{{ __('invite.footer_powered_by') }}" class="h-20 w-auto object-contain mx-auto mt-4 opacity-40">
+<img src="{{ \App\Models\LandingSetting::logoUrl('logo_dark') }}" alt="{{ __('invite.footer_powered_by') }}" class="h-20 w-auto object-contain mx-auto mt-4 opacity-40">
 <p class="text-[11px] opacity-30 mt-1">{{ __('invite.footer_powered_by') }}</p>

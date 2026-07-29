@@ -33,11 +33,15 @@
     @endforeach
 
     @foreach ($imageKeys as $key)
+        @php $isLogo = in_array($key, ['logo', 'logo_dark'], true); @endphp
         <div>
-            <label class="block text-sm font-medium text-slate-700 mb-1.5">{{ __('admin.landing.settings_hero_image') }}</label>
-            @if (($settings[$key]->image_path ?? null))
+            <label class="block text-sm font-medium text-slate-700 mb-1.5">{{ __('admin.landing.field_key.'.$key) }}</label>
+            @if ($settings[$key]->image_path ?? null)
                 <p class="text-xs text-slate-400 mb-1">{{ __('admin.landing.settings_current_image') }}</p>
-                <img src="{{ Storage::disk('public')->url($settings[$key]->image_path) }}" class="h-24 rounded-lg border border-slate-200 mb-2">
+                <img src="{{ Storage::disk('public')->url($settings[$key]->image_path) }}" class="h-16 rounded-lg border border-slate-200 mb-2 {{ $key === 'logo_dark' ? 'bg-slate-900 p-2' : '' }}">
+            @elseif ($isLogo)
+                <p class="text-xs text-slate-400 mb-1">{{ __('admin.landing.settings_using_default') }}</p>
+                <img src="{{ \App\Models\LandingSetting::logoUrl($key) }}" class="h-16 rounded-lg border border-slate-200 mb-2 {{ $key === 'logo_dark' ? 'bg-slate-900 p-2' : '' }}">
             @endif
             <input type="file" name="images[{{ $key }}]" accept="image/*" class="form-file">
         </div>

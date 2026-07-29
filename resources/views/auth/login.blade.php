@@ -21,7 +21,7 @@
         <div class="absolute -bottom-32 -start-24 w-96 h-96 rounded-full bg-gold-500/10 blur-3xl"></div>
 
         <a href="{{ url('/') }}" class="relative flex items-center">
-            <img src="{{ asset('images/qrdukhool-white.png') }}" alt="{{ __('admin.auth.studio_name') }}" class="h-40 w-auto object-contain">
+            <img src="{{ \App\Models\LandingSetting::logoUrl('logo_dark') }}" alt="{{ __('admin.auth.studio_name') }}" class="h-40 w-auto object-contain">
         </a>
 
         <div class="relative max-w-sm">
@@ -57,7 +57,7 @@
             </div>
 
             <div class="md:hidden flex justify-center mb-1">
-                <img src="{{ asset('images/qrdukhool-logo.png') }}" alt="{{ __('admin.auth.studio_name') }}" class="h-20 w-auto object-contain">
+                <img src="{{ \App\Models\LandingSetting::logoUrl('logo') }}" alt="{{ __('admin.auth.studio_name') }}" class="h-20 w-auto object-contain">
             </div>
             <h2 class="text-2xl font-display font-semibold text-slate-900 mb-1">{{ __('admin.auth.sign_in_title') }}</h2>
             <p class="text-sm text-slate-500 mb-8">{{ __('admin.auth.tagline') }}</p>

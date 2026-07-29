@@ -16,7 +16,7 @@ class SettingsController extends Controller
         'contact_phone', 'footer_rights',
     ];
 
-    private const IMAGE_KEYS = ['hero_image'];
+    private const IMAGE_KEYS = ['hero_image', 'logo', 'logo_dark'];
 
     public function edit()
     {
