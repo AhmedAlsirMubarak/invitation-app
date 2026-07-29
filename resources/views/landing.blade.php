@@ -263,7 +263,8 @@
                             </li>
                         @endforeach
                     </ul>
-                    <a href="{{ $package->cta_url ?: (auth()->check() ? route('admin.dashboard') : route('login')) }}"
+                    <a href="{{ $package->cta_url ?: $heroCtaUrl }}"
+                       @if (! $package->cta_url && $heroWhatsappUrl && ! auth()->check()) target="_blank" rel="noopener" @endif
                        class="block text-center text-sm px-4 py-3 rounded-xl font-medium transition {{ $package->t('badge') ? 'bg-gold-500 text-ink-900 hover:bg-gold-400' : 'bg-slate-900 text-white hover:bg-slate-800' }}">
                         {{ $package->t('cta_label') ?: __('landing.hero_cta') }}
                     </a>
@@ -308,12 +309,14 @@
             <p class="text-white/70 mb-8 max-w-xl mx-auto leading-relaxed">{{ $settings['contact_subtitle'] }}</p>
         @endif
         @if ($settings['contact_phone'] ?? null)
-            <a href="tel:{{ $settings['contact_phone'] }}" class="inline-flex items-center gap-2 px-7 py-3 rounded-full font-medium shadow-lg shadow-gold-900/20 hover:-translate-y-0.5 transition" style="background:#C79A3B;color:#16261F;">
+            <a href="{{ $heroWhatsappUrl }}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-7 py-3 rounded-full font-medium shadow-lg shadow-gold-900/20 hover:-translate-y-0.5 transition" style="background:#C79A3B;color:#16261F;">
                 <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="{{ $icoPhone }}"/></svg>
                 {{ $settings['contact_phone'] }}
             </a>
         @else
-            <a href="{{ route('login') }}" class="inline-block px-7 py-3 rounded-full font-medium shadow-lg shadow-gold-900/20 hover:-translate-y-0.5 transition" style="background:#C79A3B;color:#16261F;">{{ $settings['hero_cta'] ?? '' }}</a>
+            <a href="{{ $heroCtaUrl }}"
+               @if ($heroWhatsappUrl && ! auth()->check()) target="_blank" rel="noopener" @endif
+               class="inline-block px-7 py-3 rounded-full font-medium shadow-lg shadow-gold-900/20 hover:-translate-y-0.5 transition" style="background:#C79A3B;color:#16261F;">{{ $settings['hero_cta'] ?? '' }}</a>
         @endif
     </div>
 </section>
