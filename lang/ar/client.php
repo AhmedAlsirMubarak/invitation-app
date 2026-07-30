@@ -15,6 +15,8 @@ return [
 
     'edit_event' => 'تعديل بيانات المناسبة',
     'edit_event_title' => 'تعديل بيانات المناسبة',
+    'edit_guest_title' => 'تعديل بيانات الضيف',
+    'edit' => 'تعديل',
     'back_to_guests' => 'العودة لقائمة الضيوف',
     'field_title' => 'اسم المناسبة',
     'field_title_en' => 'اسم المناسبة بالإنجليزية (اختياري)',
@@ -71,6 +73,7 @@ return [
     'no_guests' => 'لم تتم إضافة ضيوف بعد.',
 
     'guest_added' => 'تمت إضافة :name.',
+    'guest_updated' => 'تم حفظ بيانات :name.',
     'guests_imported' => 'تم استيراد :count ضيف.',
     'guests_skipped_quota' => 'تم تجاوز :count ضيف — وصلت للحد الأقصى من الدعوات.',
     'guest_removed' => 'تمت إزالة الضيف.',

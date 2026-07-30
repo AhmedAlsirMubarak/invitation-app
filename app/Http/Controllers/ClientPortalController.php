@@ -149,6 +149,39 @@ class ClientPortalController extends Controller
         return back()->with('status', $message);
     }
 
+    public function editGuest(string $token, Guest $guest)
+    {
+        $event = $this->findEvent($token);
+        abort_unless($guest->event_id === $event->id, 404);
+
+        $phone = PhoneNumber::split($guest->phone);
+
+        return view('client.edit-guest', compact('token', 'event', 'guest', 'phone'));
+    }
+
+    public function updateGuest(Request $request, string $token, Guest $guest)
+    {
+        $event = $this->findEvent($token);
+        abort_unless($guest->event_id === $event->id, 404);
+
+        $data = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'name_en' => ['nullable', 'string', 'max:255'],
+            'country_code' => ['nullable', 'string', 'max:5'],
+            'phone' => ['nullable', 'string', 'max:30'],
+            'email' => ['nullable', 'email', 'max:255'],
+            'companions_count' => ['nullable', 'integer', 'min:0', 'max:20'],
+            'table_number' => ['nullable', 'string', 'max:50'],
+        ]);
+        $data['phone'] = PhoneNumber::combine($data['country_code'] ?? null, $data['phone'] ?? null);
+        $data['companions_count'] = $data['companions_count'] ?? 0;
+        unset($data['country_code']);
+
+        $guest->update($data);
+
+        return redirect()->route('client.show', $token)->with('status', __('client.guest_updated', ['name' => $guest->name]));
+    }
+
     public function destroyGuest(string $token, Guest $guest)
     {
         $event = $this->findEvent($token);

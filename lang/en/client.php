@@ -15,6 +15,8 @@ return [
 
     'edit_event' => 'Edit event details',
     'edit_event_title' => 'Edit event details',
+    'edit_guest_title' => 'Edit guest details',
+    'edit' => 'Edit',
     'back_to_guests' => 'Back to guest list',
     'field_title' => 'Event title',
     'field_title_en' => 'Event title in English (optional)',
@@ -71,6 +73,7 @@ return [
     'no_guests' => 'No guests added yet.',
 
     'guest_added' => ':name added.',
+    'guest_updated' => ":name's details saved.",
     'guests_imported' => 'Imported :count guests.',
     'guests_skipped_quota' => ':count skipped — you reached your invite limit.',
     'guest_removed' => 'Guest removed.',

@@ -32,6 +32,8 @@ Route::prefix('client')->name('client.')->group(function () {
     Route::put('{token}', [ClientPortalController::class, 'updateEvent'])->name('update');
     Route::post('{token}/guests', [ClientPortalController::class, 'storeGuest'])->name('guests.store');
     Route::post('{token}/guests/import', [ClientPortalController::class, 'importGuests'])->name('guests.import');
+    Route::get('{token}/guests/{guest}/edit', [ClientPortalController::class, 'editGuest'])->name('guests.edit');
+    Route::put('{token}/guests/{guest}', [ClientPortalController::class, 'updateGuest'])->name('guests.update');
     Route::delete('{token}/guests/{guest}', [ClientPortalController::class, 'destroyGuest'])->name('guests.destroy');
     Route::get('{token}/guests/{guest}/invite', [ClientPortalController::class, 'sendInvite'])->name('guests.invite');
     Route::get('{token}/guests-bulk-invite', [ClientPortalController::class, 'bulkInvite'])->name('guests.bulk-invite');

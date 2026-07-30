@@ -127,7 +127,7 @@
                 @forelse ($guests as $guest)
                     <tr>
                         <td class="px-4 py-2 text-slate-900">{{ $guest->name }}</td>
-                        <td class="px-4 py-2">{{ ucfirst($guest->rsvp_status) }}</td>
+                        <td class="px-4 py-2">{{ __('admin.rsvp_statuses.'.$guest->rsvp_status) }}</td>
                         @if ($event->showsTableNumber())
                             <td class="px-4 py-2">{{ $guest->table_number ?? '—' }}</td>
                         @endif
@@ -153,10 +153,11 @@
                                 @endif
                             </td>
                         @endif
-                        <td class="px-4 py-2 text-right">
-                            <form action="{{ route('client.guests.destroy', [$event->client_token, $guest]) }}" method="POST" onsubmit="return confirm('{{ __('client.remove_confirm') }}')">
+                        <td class="px-4 py-2 text-right whitespace-nowrap">
+                            <a href="{{ route('client.guests.edit', [$event->client_token, $guest]) }}" class="text-slate-700 text-xs underline">{{ __('client.edit') }}</a>
+                            <form action="{{ route('client.guests.destroy', [$event->client_token, $guest]) }}" method="POST" onsubmit="return confirm('{{ __('client.remove_confirm') }}')" class="inline">
                                 @csrf @method('DELETE')
-                                <button class="text-red-600 text-xs underline">{{ __('client.remove') }}</button>
+                                <button class="text-red-600 text-xs underline ms-2">{{ __('client.remove') }}</button>
                             </form>
                         </td>
                     </tr>
