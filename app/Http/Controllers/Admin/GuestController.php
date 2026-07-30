@@ -40,6 +40,7 @@ class GuestController extends Controller
     {
         $data = $request->validate([
             'name' => ['required', 'string', 'max:255'],
+            'name_en' => ['nullable', 'string', 'max:255'],
             'country_code' => ['nullable', 'string', 'max:5'],
             'phone' => ['nullable', 'string', 'max:30'],
             'email' => ['nullable', 'email', 'max:255'],
@@ -58,7 +59,7 @@ class GuestController extends Controller
     }
 
     // Bulk import: expects a CSV or Excel (.xlsx) file with headers
-    // name,phone,email,companions_count,table_number
+    // name,name_en,phone,email,companions_count,table_number
     public function import(Request $request, Event $event)
     {
         $request->validate([
@@ -77,6 +78,7 @@ class GuestController extends Controller
             $guest = Guest::create([
                 'event_id' => $event->id,
                 'name' => trim($row['name']),
+                'name_en' => ! empty($row['name_en']) ? trim($row['name_en']) : null,
                 'phone' => $row['phone'] ?? null,
                 'email' => $row['email'] ?? null,
                 'companions_count' => (int) ($row['companions_count'] ?? 0),
@@ -100,6 +102,7 @@ class GuestController extends Controller
     {
         $data = $request->validate([
             'name' => ['required', 'string', 'max:255'],
+            'name_en' => ['nullable', 'string', 'max:255'],
             'country_code' => ['nullable', 'string', 'max:5'],
             'phone' => ['nullable', 'string', 'max:30'],
             'email' => ['nullable', 'email', 'max:255'],

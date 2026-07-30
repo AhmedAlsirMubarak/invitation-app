@@ -80,6 +80,7 @@ class ClientPortalController extends Controller
 
         $data = $request->validate([
             'name' => ['required', 'string', 'max:255'],
+            'name_en' => ['nullable', 'string', 'max:255'],
             'country_code' => ['nullable', 'string', 'max:5'],
             'phone' => ['nullable', 'string', 'max:30'],
             'email' => ['nullable', 'email', 'max:255'],
@@ -129,6 +130,7 @@ class ClientPortalController extends Controller
             $guest = Guest::create([
                 'event_id' => $event->id,
                 'name' => trim($row['name']),
+                'name_en' => ! empty($row['name_en']) ? trim($row['name_en']) : null,
                 'phone' => $row['phone'] ?? null,
                 'email' => $row['email'] ?? null,
                 'companions_count' => (int) ($row['companions_count'] ?? 0),

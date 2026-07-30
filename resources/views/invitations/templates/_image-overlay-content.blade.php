@@ -29,7 +29,7 @@
 <div class="w-12 h-px mx-auto accent-border border-t my-4"></div>
 
 <p class="text-sm accent-text mb-1">{{ in_array($event->event_type, ['workshop', 'sports']) ? __('invite.salutation_casual') : __('invite.salutation') }}</p>
-<p class="font-display text-xl mb-1">{{ $guest->name }}</p>
+<p class="font-display text-xl mb-1">{{ $guest->displayName() }}</p>
 @if ($guest->companions_count > 0)
     <p class="text-sm opacity-70 mb-3">{{ __('invite.companions_line', ['count' => $guest->companions_count]) }}</p>
 @else
@@ -64,7 +64,7 @@
     <div class="bg-white rounded-xl p-4 inline-block text-center" style="color: {{ $design['primary_color'] ?? '#16261F' }};">
         <p class="font-display text-sm mb-1">{{ __('invite.entry_card_title') }}</p>
         <img src="{{ Storage::disk('public')->url($guest->qr_code_path) }}" alt="{{ __('invite.entry_card_title') }}" class="w-32 h-32 mx-auto my-1">
-        <p class="text-xs font-medium">{{ $guest->name }}</p>
+        <p class="text-xs font-medium">{{ $guest->displayName() }}</p>
         @if ($guest->companions_count > 0)
             <p class="text-xs text-slate-500">{{ __('invite.guest_count') }}: {{ $guest->companions_count + 1 }}</p>
         @endif

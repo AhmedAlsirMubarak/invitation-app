@@ -15,6 +15,7 @@ class Guest extends Model
     protected $fillable = [
         'event_id',
         'name',
+        'name_en',
         'phone',
         'email',
         'companions_count',
@@ -57,5 +58,16 @@ class Guest extends Model
     public function invitationUrl(): string
     {
         return url('/i/'.$this->token);
+    }
+
+    // English spelling shown on the invitation page when viewed in English,
+    // falling back to the primary name if none was given.
+    public function displayName(): string
+    {
+        if (app()->getLocale() === 'en' && filled($this->name_en)) {
+            return $this->name_en;
+        }
+
+        return $this->name;
     }
 }

@@ -42,13 +42,14 @@ return [
 
     'add_single' => 'إضافة ضيف',
     'field_name' => 'الاسم الكامل',
+    'field_name_en' => 'الاسم بالإنجليزية (اختياري)',
     'field_phone' => 'رقم الجوال',
     'field_email' => 'البريد الإلكتروني',
     'field_companions' => 'عدد المرافقين',
     'field_table' => 'رقم الطاولة',
     'add_submit' => 'إضافة الضيف',
     'bulk_import' => 'استيراد جماعي (CSV)',
-    'bulk_import_hint' => 'CSV أو Excel (.xlsx). الأعمدة: name, phone, email, companions_count, table_number',
+    'bulk_import_hint' => 'CSV أو Excel (.xlsx). الأعمدة: name, name_en, phone, email, companions_count, table_number',
     'download_template' => 'تحميل نموذج CSV',
     'import_submit' => 'استيراد الضيوف',
 

@@ -42,13 +42,14 @@ return [
 
     'add_single' => 'Add a guest',
     'field_name' => 'Full name',
+    'field_name_en' => 'English name (optional)',
     'field_phone' => 'Phone',
     'field_email' => 'Email',
     'field_companions' => 'Companions',
     'field_table' => 'Table #',
     'add_submit' => 'Add guest',
     'bulk_import' => 'Bulk import (CSV)',
-    'bulk_import_hint' => 'CSV or Excel (.xlsx). Columns: name, phone, email, companions_count, table_number',
+    'bulk_import_hint' => 'CSV or Excel (.xlsx). Columns: name, name_en, phone, email, companions_count, table_number',
     'download_template' => 'Download CSV template',
     'import_submit' => 'Import guests',
 

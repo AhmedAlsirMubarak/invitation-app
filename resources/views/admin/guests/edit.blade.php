@@ -11,6 +11,11 @@
         <input name="name" value="{{ $guest->name }}" required class="form-input">
     </div>
 
+    <div>
+        <label class="block text-sm font-medium text-slate-700 mb-1.5">{{ __('admin.guests.field_name_en') }}</label>
+        <input name="name_en" value="{{ $guest->name_en }}" dir="ltr" class="form-input">
+    </div>
+
     <div class="grid grid-cols-2 gap-4">
         <div>
             <label class="block text-sm font-medium text-slate-700 mb-1.5">{{ __('admin.guests.field_phone') }}</label>

@@ -26,6 +26,7 @@
         @csrf
         <p class="font-medium text-slate-900 text-sm">{{ __('admin.guests.add_single') }}</p>
         <input name="name" required placeholder="{{ __('admin.guests.field_name_placeholder') }}" class="form-input">
+        <input name="name_en" placeholder="{{ __('admin.guests.field_name_en_placeholder') }}" dir="ltr" class="form-input">
         <div class="grid grid-cols-3 gap-3">
             <select name="country_code" class="form-select">
                 @foreach (\App\Support\PhoneNumber::COUNTRIES as $code => $label)
