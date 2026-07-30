@@ -8,6 +8,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    @include('partials.favicon')
+    @include('partials.noindex')
     <title>{{ $event->displayTitle() }}</title>
     @vite(['resources/css/app.css'])
     <style>

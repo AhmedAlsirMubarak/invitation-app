@@ -6,6 +6,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    @include('partials.favicon')
+    @include('partials.noindex')
     <title>{{ __('client.edit_guest_title') }} · {{ $guest->name }}</title>
     @vite(['resources/css/app.css'])
 </head>
@@ -48,7 +50,7 @@
                             <option value="{{ $code }}" @selected($code === $phone['country_code'])>{{ $label }}</option>
                         @endforeach
                     </select>
-                    <input name="phone" value="{{ old('phone', $phone['local']) }}" class="col-span-2 form-input">
+                    <input name="phone" value="{{ old('phone', $phone['local']) }}" dir="ltr" class="col-span-2 form-input">
                 </div>
             </div>
             <div>
@@ -68,7 +70,7 @@
                 @if ($event->showsTableNumber())
                     <div>
                         <label class="block text-sm font-medium text-slate-700 mb-1.5">{{ __('client.field_table') }}</label>
-                        <input name="table_number" value="{{ old('table_number', $guest->table_number) }}" class="form-input">
+                        <input name="table_number" value="{{ old('table_number', $guest->table_number) }}" dir="ltr" class="form-input">
                     </div>
                 @endif
             </div>

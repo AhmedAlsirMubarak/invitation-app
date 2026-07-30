@@ -8,6 +8,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    @include('partials.favicon')
+    @include('partials.noindex')
     <title>{{ __('admin.auth.sign_in_title') }} · {{ __('admin.auth.studio_name') }}</title>
     @vite(['resources/css/app.css'])
 </head>

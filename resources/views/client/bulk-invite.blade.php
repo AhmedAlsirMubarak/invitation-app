@@ -6,6 +6,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    @include('partials.favicon')
+    @include('partials.noindex')
     <title>{{ __('client.bulk_invite_title') }} · {{ $event->title }}</title>
     @vite(['resources/css/app.css'])
 </head>

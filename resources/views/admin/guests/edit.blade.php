@@ -25,7 +25,7 @@
                         <option value="{{ $code }}" @selected($code === $phone['country_code'])>{{ $label }}</option>
                     @endforeach
                 </select>
-                <input name="phone" value="{{ $phone['local'] }}" class="col-span-2 form-input">
+                <input name="phone" value="{{ $phone['local'] }}" dir="ltr" class="col-span-2 form-input">
             </div>
         </div>
         <div>
@@ -45,7 +45,7 @@
             @if ($event->showsTableNumber())
                 <div>
                     <label class="block text-sm font-medium text-slate-700 mb-1.5">{{ __('admin.guests.field_table') }}</label>
-                    <input name="table_number" value="{{ $guest->table_number }}" class="form-input">
+                    <input name="table_number" value="{{ $guest->table_number }}" dir="ltr" class="form-input">
                 </div>
             @endif
         </div>

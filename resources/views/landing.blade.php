@@ -29,14 +29,41 @@
         $heroWhatsappUrl = 'https://api.whatsapp.com/send?phone='.$digits.'&text='.rawurlencode($heroWhatsappMessage);
     }
     $heroCtaUrl = auth()->check() ? route('admin.dashboard') : ($heroWhatsappUrl ?? route('login'));
+
+    $seoTitle = __('landing.brand').($settings['hero_title'] ?? null ? ' — '.$settings['hero_title'] : '');
+    $seoDescription = $settings['hero_subtitle'] ?? '';
+    $seoImage = $settings['hero_image'] ?? \App\Models\LandingSetting::logoUrl('logo');
+    $ogLocale = app()->getLocale() === 'ar' ? 'ar_AR' : 'en_US';
 @endphp
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}" dir="{{ app()->getLocale() === 'ar' ? 'rtl' : 'ltr' }}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ __('landing.brand') }}</title>
-    <meta name="description" content="{{ $settings['hero_subtitle'] ?? '' }}">
+    @include('partials.favicon')
+    <title>{{ $seoTitle }}</title>
+    <meta name="description" content="{{ $seoDescription }}">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="{{ url('/') }}">
+    <link rel="alternate" hreflang="ar" href="{{ url('/').'?lang=ar' }}">
+    <link rel="alternate" hreflang="en" href="{{ url('/').'?lang=en' }}">
+    <link rel="alternate" hreflang="x-default" href="{{ url('/') }}">
+
+    {{-- Open Graph / Facebook, WhatsApp link previews --}}
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="{{ __('landing.brand') }}">
+    <meta property="og:locale" content="{{ $ogLocale }}">
+    <meta property="og:url" content="{{ url('/') }}">
+    <meta property="og:title" content="{{ $seoTitle }}">
+    <meta property="og:description" content="{{ $seoDescription }}">
+    <meta property="og:image" content="{{ $seoImage }}">
+
+    {{-- Twitter Card --}}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ $seoTitle }}">
+    <meta name="twitter:description" content="{{ $seoDescription }}">
+    <meta name="twitter:image" content="{{ $seoImage }}">
+
     @vite(['resources/css/app.css'])
 </head>
 <body class="bg-white text-slate-900 antialiased">
@@ -311,7 +338,7 @@
         @if ($settings['contact_phone'] ?? null)
             <a href="{{ $heroWhatsappUrl }}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-7 py-3 rounded-full font-medium shadow-lg shadow-gold-900/20 hover:-translate-y-0.5 transition" style="background:#C79A3B;color:#16261F;">
                 <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="{{ $icoPhone }}"/></svg>
-                {{ $settings['contact_phone'] }}
+                <span dir="ltr">{{ $settings['contact_phone'] }}</span>
             </a>
         @else
             <a href="{{ $heroCtaUrl }}"

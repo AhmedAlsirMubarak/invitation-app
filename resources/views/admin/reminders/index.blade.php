@@ -25,7 +25,7 @@
                 <tr>
                     <td class="px-4 py-2 text-slate-900">{{ $guest->name }}</td>
                     <td class="px-4 py-2 text-slate-500">{{ $guest->event->title }}</td>
-                    <td class="px-4 py-2 text-slate-500">{{ $guest->phone ?? '—' }}</td>
+                    <td class="px-4 py-2 text-slate-500" dir="ltr">{{ $guest->phone ?? '—' }}</td>
                     <td class="px-4 py-2 text-right">
                         @if ($guest->phone)
                             <a href="{{ route('admin.events.guests.remind', [$guest->event, $guest]) }}" target="_blank" class="inline-flex items-center gap-1 bg-emerald-600 text-white text-xs px-3 py-1.5 rounded-md hover:bg-emerald-700">{{ __('admin.reminders.send_reminder') }}</a>

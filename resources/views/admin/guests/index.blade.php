@@ -33,7 +33,7 @@
                     <option value="{{ $code }}" @selected($code === '966')>{{ $label }}</option>
                 @endforeach
             </select>
-            <input name="phone" placeholder="{{ __('admin.guests.field_phone_placeholder') }}" class="col-span-2 form-input">
+            <input name="phone" placeholder="{{ __('admin.guests.field_phone_placeholder') }}" dir="ltr" class="col-span-2 form-input">
         </div>
         <input name="email" placeholder="{{ __('admin.guests.field_email_placeholder') }}" class="form-input">
         @if ($event->showsCompanions() || $event->showsTableNumber())
@@ -42,7 +42,7 @@
                     <input name="companions_count" type="number" min="0" placeholder="{{ $event->companionsLabel() }}" class="flex-1 form-input">
                 @endif
                 @if ($event->showsTableNumber())
-                    <input name="table_number" placeholder="{{ __('admin.guests.field_table_placeholder') }}" class="flex-1 form-input">
+                    <input name="table_number" placeholder="{{ __('admin.guests.field_table_placeholder') }}" dir="ltr" class="flex-1 form-input">
                 @endif
             </div>
         @endif
@@ -82,7 +82,7 @@
                     <td class="px-4 py-2 text-slate-900">{{ $guest->name }}</td>
                     <td class="px-4 py-2">{{ __('admin.rsvp_statuses.'.$guest->rsvp_status) }}</td>
                     @if ($event->showsTableNumber())
-                        <td class="px-4 py-2">{{ $guest->table_number ?? '—' }}</td>
+                        <td class="px-4 py-2" dir="ltr">{{ $guest->table_number ?? '—' }}</td>
                     @endif
                     <td class="px-4 py-2">
                         @if ($guest->qr_code_path)

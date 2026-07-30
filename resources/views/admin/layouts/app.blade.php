@@ -6,6 +6,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    @include('partials.favicon')
+    @include('partials.noindex')
     <title>@yield('title', __('admin.nav.dashboard')) · {{ __('admin.nav.studio_name') }}</title>
     @vite(['resources/css/app.css'])
 </head>

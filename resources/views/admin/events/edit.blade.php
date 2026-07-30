@@ -48,7 +48,7 @@
 
     <div>
         <label class="block text-sm font-medium text-slate-700 mb-1.5">{{ __('admin.events.field_venue_map_url') }}</label>
-        <input name="venue_map_url" value="{{ $event->venue_map_url }}" class="form-input">
+        <input name="venue_map_url" value="{{ $event->venue_map_url }}" dir="ltr" class="form-input">
     </div>
 
     <div>

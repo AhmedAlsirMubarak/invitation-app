@@ -7,6 +7,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    @include('partials.favicon')
+    @include('partials.noindex')
     <title>{{ $event->title }} · {{ __('client.title', ['noun' => $event->guestNoun()]) }}</title>
     @vite(['resources/css/app.css'])
 </head>
@@ -50,7 +52,7 @@
         <p class="font-medium text-slate-900 text-sm mb-1">{{ __('client.scanner_link_title') }}</p>
         <p class="text-xs text-slate-500 mb-3">{{ __('client.scanner_link_hint') }}</p>
         <div class="flex items-center gap-2">
-            <input type="text" readonly value="{{ $event->scannerUrl() }}" id="scanner-link-input" class="form-input flex-1 bg-slate-50" onclick="this.select()">
+            <input type="text" readonly value="{{ $event->scannerUrl() }}" id="scanner-link-input" dir="ltr" class="form-input flex-1 bg-slate-50" onclick="this.select()">
             <button type="button" onclick="navigator.clipboard.writeText(document.getElementById('scanner-link-input').value)" class="border border-slate-300 text-sm px-3 py-2 rounded-md hover:bg-slate-50">{{ __('client.scanner_link_copy') }}</button>
             <a href="{{ $event->scannerUrl() }}" target="_blank" class="border border-slate-300 text-sm px-3 py-2 rounded-md hover:bg-slate-50">{{ __('client.scanner_link_open') }}</a>
         </div>
@@ -79,7 +81,7 @@
                         <option value="{{ $code }}" @selected($code === '966')>{{ $label }}</option>
                     @endforeach
                 </select>
-                <input name="phone" placeholder="{{ __('client.field_phone') }}" class="col-span-2 form-input">
+                <input name="phone" placeholder="{{ __('client.field_phone') }}" dir="ltr" class="col-span-2 form-input">
             </div>
             <input name="email" placeholder="{{ __('client.field_email') }}" class="form-input">
             @if ($event->showsCompanions() || $event->showsTableNumber())
@@ -88,7 +90,7 @@
                         <input name="companions_count" type="number" min="0" placeholder="{{ $event->companionsLabel() }}" class="flex-1 form-input">
                     @endif
                     @if ($event->showsTableNumber())
-                        <input name="table_number" placeholder="{{ __('client.field_table') }}" class="flex-1 form-input">
+                        <input name="table_number" placeholder="{{ __('client.field_table') }}" dir="ltr" class="flex-1 form-input">
                     @endif
                 </div>
             @endif
@@ -129,7 +131,7 @@
                         <td class="px-4 py-2 text-slate-900">{{ $guest->name }}</td>
                         <td class="px-4 py-2">{{ __('admin.rsvp_statuses.'.$guest->rsvp_status) }}</td>
                         @if ($event->showsTableNumber())
-                            <td class="px-4 py-2">{{ $guest->table_number ?? '—' }}</td>
+                            <td class="px-4 py-2" dir="ltr">{{ $guest->table_number ?? '—' }}</td>
                         @endif
                         <td class="px-4 py-2">
                             @if ($guest->qr_code_path)

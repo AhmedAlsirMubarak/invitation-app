@@ -40,7 +40,7 @@
     <p class="font-medium text-slate-900 text-sm mb-1">{{ __('admin.events.client_link_title') }}</p>
     <p class="text-xs text-slate-500 mb-3">{{ __('admin.events.client_link_hint') }}</p>
     <div class="flex items-center gap-2 mb-2">
-        <input type="text" readonly value="{{ $event->clientUrl() }}" id="client-link-input" class="form-input flex-1 bg-slate-50" onclick="this.select()">
+        <input type="text" readonly value="{{ $event->clientUrl() }}" id="client-link-input" dir="ltr" class="form-input flex-1 bg-slate-50" onclick="this.select()">
         <button type="button" onclick="navigator.clipboard.writeText(document.getElementById('client-link-input').value)" class="border border-slate-300 text-sm px-3 py-2 rounded-md hover:bg-slate-50">{{ __('admin.events.client_link_copy') }}</button>
         <a href="{{ $event->clientUrl() }}" target="_blank" class="border border-slate-300 text-sm px-3 py-2 rounded-md hover:bg-slate-50">{{ __('admin.events.client_link_open') }}</a>
     </div>
@@ -59,7 +59,7 @@
     <p class="font-medium text-slate-900 text-sm mb-1">{{ __('admin.events.scanner_link_title') }}</p>
     <p class="text-xs text-slate-500 mb-3">{{ __('admin.events.scanner_link_hint') }}</p>
     <div class="flex items-center gap-2 mb-2">
-        <input type="text" readonly value="{{ $event->scannerUrl() }}" id="scanner-link-input" class="form-input flex-1 bg-slate-50" onclick="this.select()">
+        <input type="text" readonly value="{{ $event->scannerUrl() }}" id="scanner-link-input" dir="ltr" class="form-input flex-1 bg-slate-50" onclick="this.select()">
         <button type="button" onclick="navigator.clipboard.writeText(document.getElementById('scanner-link-input').value)" class="border border-slate-300 text-sm px-3 py-2 rounded-md hover:bg-slate-50">{{ __('admin.events.scanner_link_copy') }}</button>
         <a href="{{ $event->scannerUrl() }}" target="_blank" class="border border-slate-300 text-sm px-3 py-2 rounded-md hover:bg-slate-50">{{ __('admin.events.scanner_link_open') }}</a>
     </div>

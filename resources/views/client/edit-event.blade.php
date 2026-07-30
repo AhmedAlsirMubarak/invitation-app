@@ -6,6 +6,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    @include('partials.favicon')
+    @include('partials.noindex')
     <title>{{ __('client.edit_event_title') }} · {{ $event->title }}</title>
     @vite(['resources/css/app.css'])
 </head>
@@ -67,7 +69,7 @@
 
         <div>
             <label class="block text-sm font-medium text-slate-700 mb-1.5">{{ __('client.field_venue_map_url') }}</label>
-            <input name="venue_map_url" value="{{ old('venue_map_url', $event->venue_map_url) }}" class="form-input" placeholder="https://maps.google.com/...">
+            <input name="venue_map_url" value="{{ old('venue_map_url', $event->venue_map_url) }}" dir="ltr" class="form-input" placeholder="https://maps.google.com/...">
         </div>
 
         <div>

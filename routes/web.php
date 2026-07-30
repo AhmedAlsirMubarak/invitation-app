@@ -21,6 +21,31 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [LandingController::class, 'index'])->name('landing');
 
+// Dynamic (not static public files) so both always reflect the real
+// production domain (APP_URL) instead of whatever was hardcoded at build
+// time. The landing page is the only real public/indexable route — every
+// admin/client/guest/scanner route is unguessable-token-scoped or behind
+// auth and explicitly disallowed here.
+Route::get('/robots.txt', function () {
+    $lines = [
+        'User-agent: *',
+        'Disallow: /admin',
+        'Disallow: /login',
+        'Disallow: /client',
+        'Disallow: /scan',
+        'Disallow: /i',
+        'Allow: /',
+        '',
+        'Sitemap: '.url('/sitemap.xml'),
+    ];
+
+    return response(implode("\n", $lines))->header('Content-Type', 'text/plain');
+})->name('robots');
+
+Route::get('/sitemap.xml', function () {
+    return response(view('sitemap')->render())->header('Content-Type', 'application/xml');
+})->name('sitemap');
+
 // --- Public guest-facing routes (no login) ---
 Route::get('/i/{token}', [GuestInvitationController::class, 'show'])->name('invitations.show');
 Route::post('/i/{token}/rsvp', [GuestInvitationController::class, 'rsvp'])->name('invitations.rsvp');
