@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'salutation' => 'المكرم / المكرمة',
+    'salutation' => 'الفاضل / الفاضلة',
     'salutation_casual' => 'عزيزي/عزيزتي',
     'greeting' => 'السلام عليكم ورحمة الله وبركاته',
     'invited_to' => 'يتشرف بدعوتكم لحضور',

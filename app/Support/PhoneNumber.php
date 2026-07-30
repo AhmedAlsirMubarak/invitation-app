@@ -7,12 +7,13 @@ class PhoneNumber
     // Curated for this app's market — Gulf/Arab countries first, plus a
     // few international majors. Not an exhaustive world list.
     public const COUNTRIES = [
+        '968' => 'Oman (+968)',
         '966' => 'Saudi Arabia (+966)',
         '971' => 'United Arab Emirates (+971)',
         '965' => 'Kuwait (+965)',
         '974' => 'Qatar (+974)',
         '973' => 'Bahrain (+973)',
-        '968' => 'Oman (+968)',
+        '249' => 'Sudan (+249)',
         '20' => 'Egypt (+20)',
         '962' => 'Jordan (+962)',
         '961' => 'Lebanon (+961)',

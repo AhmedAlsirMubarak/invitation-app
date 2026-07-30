@@ -52,16 +52,45 @@
     </div>
 
     @if ($event->hasFullService())
+        @php $placeholderLabels = __('admin.events.placeholder_labels'); @endphp
         <div>
             <label class="block text-sm font-medium text-slate-700 mb-1.5">{{ __('admin.events.field_invite_message') }}</label>
-            <textarea name="invite_message_template" rows="4" class="form-textarea font-mono text-xs" dir="rtl" placeholder="{{ __('admin.events.message_template_hint') }}">{{ $event->invite_message_template }}</textarea>
+            <textarea id="invite_message_template" name="invite_message_template" rows="4" class="form-textarea font-mono text-xs" dir="rtl" placeholder="{{ __('admin.events.message_template_hint') }}">{{ $event->invite_message_template }}</textarea>
+            <div class="flex flex-wrap gap-1.5 mt-2">
+                @foreach (\App\Services\WhatsAppLinkService::PLACEHOLDERS as $placeholder)
+                    <button type="button" class="placeholder-chip text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 px-2.5 py-1 rounded-full transition" data-target="invite_message_template" data-placeholder="{{ $placeholder }}">
+                        {{ $placeholderLabels[$placeholder] ?? $placeholder }}
+                    </button>
+                @endforeach
+            </div>
         </div>
 
         <div>
             <label class="block text-sm font-medium text-slate-700 mb-1.5">{{ __('admin.events.field_reminder_message') }}</label>
-            <textarea name="reminder_message_template" rows="4" class="form-textarea font-mono text-xs" dir="rtl" placeholder="{{ __('admin.events.message_template_hint') }}">{{ $event->reminder_message_template }}</textarea>
+            <textarea id="reminder_message_template" name="reminder_message_template" rows="4" class="form-textarea font-mono text-xs" dir="rtl" placeholder="{{ __('admin.events.message_template_hint') }}">{{ $event->reminder_message_template }}</textarea>
+            <div class="flex flex-wrap gap-1.5 mt-2">
+                @foreach (\App\Services\WhatsAppLinkService::PLACEHOLDERS as $placeholder)
+                    <button type="button" class="placeholder-chip text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 px-2.5 py-1 rounded-full transition" data-target="reminder_message_template" data-placeholder="{{ $placeholder }}">
+                        {{ $placeholderLabels[$placeholder] ?? $placeholder }}
+                    </button>
+                @endforeach
+            </div>
         </div>
         <p class="text-xs text-slate-400 -mt-3">{{ __('admin.events.message_template_hint') }}</p>
+        <script>
+            document.querySelectorAll('.placeholder-chip').forEach(function (chip) {
+                chip.addEventListener('click', function () {
+                    const textarea = document.getElementById(chip.dataset.target);
+                    const placeholder = chip.dataset.placeholder;
+                    const start = textarea.selectionStart ?? textarea.value.length;
+                    const end = textarea.selectionEnd ?? textarea.value.length;
+                    textarea.value = textarea.value.slice(0, start) + placeholder + textarea.value.slice(end);
+                    const cursor = start + placeholder.length;
+                    textarea.focus();
+                    textarea.setSelectionRange(cursor, cursor);
+                });
+            });
+        </script>
     @endif
 
     <div>
