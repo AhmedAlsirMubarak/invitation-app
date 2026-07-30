@@ -8,7 +8,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ $event->title }}</title>
+    <title>{{ $event->displayTitle() }}</title>
     @vite(['resources/css/app.css'])
     <style>
         :root {
@@ -33,7 +33,7 @@
         {{ $event->event_type === 'wedding' ? __('invite.invited_to_wedding') : __('invite.invited_to') }}
     </p>
 
-    <h1 class="font-display text-4xl leading-tight mb-3">{{ $event->title }}</h1>
+    <h1 class="font-display text-4xl leading-tight mb-3">{{ $event->displayTitle() }}</h1>
 
     <div class="w-16 h-px mx-auto accent-border border-t my-6"></div>
 

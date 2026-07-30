@@ -17,6 +17,7 @@ return [
     'edit_event_title' => 'Edit event details',
     'back_to_guests' => 'Back to guest list',
     'field_title' => 'Event title',
+    'field_title_en' => 'Event title in English (optional)',
     'field_event_type' => 'Type',
     'field_event_date' => 'Date & time',
     'field_venue_name' => 'Venue name',

@@ -145,6 +145,8 @@ return [
         'edit_title' => 'Edit event',
         'field_title' => 'Event title',
         'field_title_placeholder' => "e.g. Ahmed & Fatima's Wedding",
+        'field_title_en' => 'Event title in English (optional)',
+        'field_title_en_placeholder' => "e.g. Ahmed & Fatima's Wedding",
         'field_type' => 'Type',
         'field_date' => 'Date & time',
         'field_template' => 'Template from your library',

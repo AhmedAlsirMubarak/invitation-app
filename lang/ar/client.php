@@ -17,6 +17,7 @@ return [
     'edit_event_title' => 'تعديل بيانات المناسبة',
     'back_to_guests' => 'العودة لقائمة الضيوف',
     'field_title' => 'اسم المناسبة',
+    'field_title_en' => 'اسم المناسبة بالإنجليزية (اختياري)',
     'field_event_type' => 'النوع',
     'field_event_date' => 'التاريخ والوقت',
     'field_venue_name' => 'اسم المكان',

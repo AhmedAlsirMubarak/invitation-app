@@ -17,6 +17,7 @@ class Event extends Model
         'created_by',
         'template_id',
         'title',
+        'title_en',
         'event_type',
         'event_date',
         'venue_name',
@@ -85,6 +86,18 @@ class Event extends Model
     public function scannerUrl(): string
     {
         return url('/scan/'.$this->scanner_token);
+    }
+
+    // English spelling shown on the guest-facing invitation page when
+    // viewed in English, falling back to the primary title if none was
+    // given. The admin panel always shows the primary title.
+    public function displayTitle(): string
+    {
+        if (app()->getLocale() === 'en' && filled($this->title_en)) {
+            return $this->title_en;
+        }
+
+        return $this->title;
     }
 
     // "Guest" reads oddly for a workshop ("attendee") or sports event

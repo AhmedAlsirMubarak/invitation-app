@@ -145,6 +145,8 @@ return [
         'edit_title' => 'تعديل المناسبة',
         'field_title' => 'اسم المناسبة',
         'field_title_placeholder' => 'مثال: حفل زفاف أحمد وفاطمة',
+        'field_title_en' => 'اسم المناسبة بالإنجليزية (اختياري)',
+        'field_title_en_placeholder' => 'Example: Ahmed & Fatima Wedding',
         'field_type' => 'النوع',
         'field_date' => 'التاريخ والوقت',
         'field_template' => 'التصميم من مكتبتك',

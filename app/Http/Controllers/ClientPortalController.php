@@ -58,6 +58,7 @@ class ClientPortalController extends Controller
 
         $data = $request->validate([
             'title' => ['required', 'string', 'max:255'],
+            'title_en' => ['nullable', 'string', 'max:255'],
             'event_type' => ['required', 'string', EventTypes::validationRule()],
             'event_date' => ['required', 'date'],
             'venue_name' => ['nullable', 'string', 'max:255'],

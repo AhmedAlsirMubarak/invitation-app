@@ -40,6 +40,11 @@
             <input name="title" value="{{ old('title', $event->title) }}" required class="form-input">
         </div>
 
+        <div>
+            <label class="block text-sm font-medium text-slate-700 mb-1.5">{{ __('client.field_title_en') }}</label>
+            <input name="title_en" value="{{ old('title_en', $event->title_en) }}" dir="ltr" class="form-input">
+        </div>
+
         <div class="grid grid-cols-2 gap-4">
             <div>
                 <label class="block text-sm font-medium text-slate-700 mb-1.5">{{ __('client.field_event_type') }}</label>

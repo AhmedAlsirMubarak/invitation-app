@@ -10,7 +10,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ $event->title }}</title>
+    <title>{{ $event->displayTitle() }}</title>
     @vite(['resources/css/app.css'])
     <style>
         :root {

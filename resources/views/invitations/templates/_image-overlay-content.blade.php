@@ -8,7 +8,7 @@
     {{ $event->event_type === 'wedding' ? __('invite.invited_to_wedding') : __('invite.invited_to') }}
 </p>
 
-<h1 class="font-display text-3xl leading-tight mb-2">{{ $event->title }}</h1>
+<h1 class="font-display text-3xl leading-tight mb-2">{{ $event->displayTitle() }}</h1>
 
 <div class="w-12 h-px mx-auto accent-border border-t my-3"></div>
 

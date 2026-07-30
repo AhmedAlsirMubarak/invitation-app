@@ -94,6 +94,7 @@ class EventController extends Controller
     {
         return $request->validate([
             'title' => ['required', 'string', 'max:255'],
+            'title_en' => ['nullable', 'string', 'max:255'],
             'event_type' => ['required', 'string', EventTypes::validationRule()],
             'template_id' => ['nullable', 'exists:templates,id'],
             'event_date' => ['required', 'date'],
