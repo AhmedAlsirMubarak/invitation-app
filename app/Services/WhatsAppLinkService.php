@@ -85,7 +85,7 @@ class WhatsAppLinkService
 
         $lines = match ($event->event_type) {
             'wedding' => [
-                "المكرمة/المكرم: {$p['{name}']}",
+                "الفاضلة/الفاضل: {$p['{name}']}",
                 'السلام عليكم،',
                 '',
                 "يتشرف بدعوتكم لحضور {$p['{event_title}']}",
@@ -122,7 +122,7 @@ class WhatsAppLinkService
             ],
         };
 
-        $lines[] = '📅 '.$p['{date}'];
+        $lines[] = '  '.$p['{date}'];
         $lines[] = '🕕 '.$p['{time}'];
 
         if ($p['{venue}']) {
@@ -154,7 +154,7 @@ class WhatsAppLinkService
                 'sports' => "تذكير: غدًا موعد {$p['{event_title}']} 🏆",
                 default => "تذكير 🎉 غدًا بإذن الله موعد {$p['{event_title}']}",
             },
-            '📅 '.$p['{date}'],
+            ' '.$p['{date}'],
             '🕕 '.$p['{time}'],
         ];
 
