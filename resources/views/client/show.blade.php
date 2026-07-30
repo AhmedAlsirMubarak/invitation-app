@@ -27,6 +27,7 @@
             <a href="{{ route('client.guests.bulk-invite', $event->client_token) }}" class="inline-flex items-center gap-1.5 bg-emerald-600 text-white text-xs px-3.5 py-1.5 rounded-lg font-medium hover:bg-emerald-700 transition">
                 {{ __('client.bulk_invite') }}
             </a>
+            <a href="{{ route('client.reminders', $event->client_token) }}" class="inline-block text-xs text-slate-700 underline">{{ __('admin.reminders.title') }}</a>
         @endif
     </div>
 

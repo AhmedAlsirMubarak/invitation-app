@@ -7,7 +7,6 @@ return [
         'dashboard' => 'الرئيسية',
         'events' => 'المناسبات',
         'templates' => 'مكتبة التصاميم',
-        'reminders' => 'التذكيرات',
         'landing_page' => 'صفحة الموقع',
         'sign_out' => 'تسجيل الخروج',
         'language_switch' => 'English',
@@ -310,11 +309,11 @@ return [
     ],
 
     'reminders' => [
+        'back_to_event' => 'الرجوع للمناسبة',
         'title' => 'تذكيرات الغد',
         'subtitle' => 'الضيوف المؤكدون الذين موعد مناسبتهم غدًا — أرسل لكل منهم تذكيرًا عبر واتساب.',
         'to_remind' => 'بانتظار التذكير (:count)',
         'col_guest' => 'الضيف',
-        'col_event' => 'المناسبة',
         'col_phone' => 'الجوال',
         'send_reminder' => 'إرسال تذكير',
         'no_phone' => 'لا يوجد رقم جوال',

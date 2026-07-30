@@ -7,7 +7,6 @@ return [
         'dashboard' => 'Dashboard',
         'events' => 'Events',
         'templates' => 'Template library',
-        'reminders' => 'Reminders',
         'landing_page' => 'Landing page',
         'sign_out' => 'Sign out',
         'language_switch' => 'العربية',
@@ -310,11 +309,11 @@ return [
     ],
 
     'reminders' => [
+        'back_to_event' => 'Back to event',
         'title' => "Tomorrow's reminders",
         'subtitle' => "Confirmed guests whose event is tomorrow — send each one a WhatsApp reminder.",
         'to_remind' => 'To remind (:count)',
         'col_guest' => 'Guest',
-        'col_event' => 'Event',
         'col_phone' => 'Phone',
         'send_reminder' => 'Send reminder',
         'no_phone' => 'No phone number',

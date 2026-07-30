@@ -62,6 +62,8 @@ Route::prefix('client')->name('client.')->group(function () {
     Route::delete('{token}/guests/{guest}', [ClientPortalController::class, 'destroyGuest'])->name('guests.destroy');
     Route::get('{token}/guests/{guest}/invite', [ClientPortalController::class, 'sendInvite'])->name('guests.invite');
     Route::get('{token}/guests-bulk-invite', [ClientPortalController::class, 'bulkInvite'])->name('guests.bulk-invite');
+    Route::get('{token}/guests/{guest}/remind', [ClientPortalController::class, 'sendReminder'])->name('guests.remind');
+    Route::get('{token}/reminders', [ClientPortalController::class, 'reminders'])->name('reminders');
 });
 
 // --- Public door-staff scanner (no login, scoped by unguessable token) ---
@@ -99,7 +101,7 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
 
     Route::get('events/{event}/scanner', [ScannerController::class, 'index'])->name('events.scanner');
 
-    Route::get('reminders', [ReminderController::class, 'index'])->name('reminders.index');
+    Route::get('events/{event}/reminders', [ReminderController::class, 'index'])->name('events.reminders');
 
     Route::prefix('landing')->name('landing.')->group(function () {
         Route::get('/', [SettingsController::class, 'edit'])->name('settings.edit');

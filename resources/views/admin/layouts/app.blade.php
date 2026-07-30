@@ -24,7 +24,6 @@
             <a href="{{ route('admin.dashboard') }}" class="block px-3 py-2 rounded-md hover:bg-slate-800 {{ request()->routeIs('admin.dashboard') ? 'bg-slate-800 text-white' : '' }}">{{ __('admin.nav.dashboard') }}</a>
             <a href="{{ route('admin.events.index') }}" class="block px-3 py-2 rounded-md hover:bg-slate-800 {{ request()->routeIs('admin.events.*') ? 'bg-slate-800 text-white' : '' }}">{{ __('admin.nav.events') }}</a>
             <a href="{{ route('admin.templates.index') }}" class="block px-3 py-2 rounded-md hover:bg-slate-800 {{ request()->routeIs('admin.templates.*') ? 'bg-slate-800 text-white' : '' }}">{{ __('admin.nav.templates') }}</a>
-            <a href="{{ route('admin.reminders.index') }}" class="block px-3 py-2 rounded-md hover:bg-slate-800 {{ request()->routeIs('admin.reminders.*') ? 'bg-slate-800 text-white' : '' }}">{{ __('admin.nav.reminders') }}</a>
             <a href="{{ route('admin.landing.settings.edit') }}" class="block px-3 py-2 rounded-md hover:bg-slate-800 {{ request()->routeIs('admin.landing.*') ? 'bg-slate-800 text-white' : '' }}">{{ __('admin.nav.landing_page') }}</a>
         </nav>
         <div class="px-5 py-3 border-t border-slate-800">

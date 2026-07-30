@@ -14,6 +14,9 @@
     </div>
     <div class="flex items-center gap-2">
         <a href="{{ route('admin.events.scanner', $event) }}" class="bg-emerald-700 text-white text-sm px-4 py-2 rounded-md hover:bg-emerald-800">{{ __('admin.events.open_scanner') }}</a>
+        @if ($event->hasFullService())
+            <a href="{{ route('admin.events.reminders', $event) }}" class="border border-slate-300 text-sm px-4 py-2 rounded-md hover:bg-slate-50">{{ __('admin.reminders.title') }}</a>
+        @endif
         <a href="{{ route('admin.events.edit', $event) }}" class="border border-slate-300 text-sm px-4 py-2 rounded-md hover:bg-slate-50">{{ __('admin.events.edit') }}</a>
         <form action="{{ route('admin.events.destroy', $event) }}" method="POST" onsubmit="return confirm('{{ __('admin.events.delete_confirm') }}')">
             @csrf @method('DELETE')

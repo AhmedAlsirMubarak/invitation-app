@@ -10,6 +10,8 @@ use App\Support\EventTypes;
 use App\Support\GuestImportFile;
 use App\Support\PhoneNumber;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Collection;
 
 class ClientPortalController extends Controller
 {
@@ -236,6 +238,39 @@ class ClientPortalController extends Controller
         }
 
         $guest->update(['invite_sent_at' => now()]);
+
+        return redirect()->away($link);
+    }
+
+    // Confirmed guests whose event is tomorrow — mirrors
+    // Admin\ReminderController, scoped by client_token instead of auth.
+    public function reminders(string $token)
+    {
+        $event = $this->findEvent($token);
+        abort_unless($event->hasFullService(), 403);
+
+        $guests = $event->event_date->isSameDay(Carbon::tomorrow())
+            ? $event->guests()->where('rsvp_status', 'accepted')->orderBy('name')->get()
+            : new Collection;
+
+        $pending = $guests->whereNull('reminded_at');
+        $alreadyReminded = $guests->whereNotNull('reminded_at');
+
+        return view('client.reminders', compact('token', 'event', 'pending', 'alreadyReminded'));
+    }
+
+    public function sendReminder(string $token, Guest $guest)
+    {
+        $event = $this->findEvent($token);
+        abort_unless($guest->event_id === $event->id, 404);
+        abort_unless($event->hasFullService(), 403);
+
+        $link = $this->whatsApp->reminderLink($guest);
+        if (! $link) {
+            return back()->with('status', __('client.no_phone_on_file', ['name' => $guest->name]));
+        }
+
+        $guest->update(['reminded_at' => now()]);
 
         return redirect()->away($link);
     }
