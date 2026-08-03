@@ -336,6 +336,13 @@ return [
         'camera_denied' => 'Camera access was denied. Allow the camera permission for this site in your browser settings and reload the page.',
         'camera_not_found' => 'No camera was found on this device.',
         'camera_error' => 'Could not start the camera. Check permissions and try again.',
+        'start_scan' => 'Start scanning',
+        'starting' => 'Starting...',
+        'retry' => 'Retry',
+        'in_app_browser_warning' => 'It looks like you opened this link inside another app (like WhatsApp) — the camera may not work here. Tap ⋮ or ⋯ at the top and choose "Open in browser" for the best experience.',
+        'manual_entry_toggle' => "Camera not working? Enter the code manually",
+        'manual_entry_placeholder' => "Paste or type the guest's code",
+        'manual_submit' => 'Submit',
     ],
 
     'auth' => [
