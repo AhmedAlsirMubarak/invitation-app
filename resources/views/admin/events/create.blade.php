@@ -64,11 +64,11 @@
     <div class="grid grid-cols-2 gap-4">
         <div>
             <label class="block text-sm font-medium text-slate-700 mb-1.5">{{ __('admin.events.field_primary_color') }}</label>
-            <input type="color" name="primary_color" class="form-color">
+            <input type="color" name="primary_color" value="#16261F" class="form-color">
         </div>
         <div>
             <label class="block text-sm font-medium text-slate-700 mb-1.5">{{ __('admin.events.field_accent_color') }}</label>
-            <input type="color" name="accent_color" class="form-color">
+            <input type="color" name="accent_color" value="#C79A3B" class="form-color">
         </div>
     </div>
 

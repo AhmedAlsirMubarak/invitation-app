@@ -31,15 +31,18 @@
 </head>
 <body class="min-h-screen antialiased">
 <div class="min-h-screen flex items-center justify-center px-4 py-10">
-{{-- The uploaded image keeps its own natural aspect ratio (width:100%,
-     height:auto) instead of being CSS-cropped as a "cover" background —
-     that's what let tall card designs get scaled against the whole
-     scrollable page and show only a blank slice. The overlay content is
-     absolutely centered over the full image instead. --}}
-<div class="max-w-lg w-full relative rounded-2xl overflow-hidden shadow-lg">
+{{-- Image and content are stacked in the same CSS Grid cell so the card's
+     height is always whichever is taller. When content is short, the cell
+     matches the image's natural height and it renders uncropped. When
+     content is long (e.g. the QR entry card pushes past the image's
+     height), the cell grows to fit the content instead of clipping it —
+     the image then stretches via object-fit:cover to keep covering the
+     taller box, cropping its sides rather than the guest's text getting
+     cut off. --}}
+<div class="max-w-lg w-full relative rounded-2xl overflow-hidden shadow-lg grid">
     @if ($backgroundImage)
-        <img src="{{ $backgroundImage }}" alt="" class="w-full h-auto block">
-        <div class="absolute inset-0 flex items-center justify-center px-5 py-6">
+        <img src="{{ $backgroundImage }}" alt="" class="w-full h-full object-cover" style="grid-area: 1 / 1;">
+        <div class="relative flex items-center justify-center px-5 py-10" style="grid-area: 1 / 1;">
             <div class="overlay-panel rounded-2xl px-5 py-5 text-center w-full">
                 @include('invitations.templates._image-overlay-content')
             </div>
